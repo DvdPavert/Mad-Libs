@@ -23,10 +23,9 @@ public class StoryActivity extends AppCompatActivity {
         finish();
     }
 
-    public String getStory()
+    public Story getStory()
     {
-        Intent intent = getIntent();
-        String story = intent.getStringExtra("Story");
+        Story story =(Story) getIntent().getExtras().getSerializable("Story");
 
         TextView textViewStory = (TextView) findViewById(R.id.textViewStory);
         textViewStory.setText(story.toString());
