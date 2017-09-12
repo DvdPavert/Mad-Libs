@@ -1,3 +1,15 @@
 <resources>
-    <string name="app_name">Pavert-pset2</string>
+    <string name="app_name">MadLibs</string>
+
+    <string name="storyPrompt">Choose a story</string>
+
+    <string-array name="storyArray">
+        <item>Simple</item>
+        <item>Tarzan</item>
+        <item>University</item>
+        <item>Clothes</item>
+        <item>Dance</item>
+        <item>Random</item>
+    </string-array>
+
 </resources>

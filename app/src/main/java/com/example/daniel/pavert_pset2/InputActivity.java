@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -15,19 +16,21 @@ public class InputActivity extends AppCompatActivity {
 
     private Story story;
     private EditText editWord;
+    private Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input);
+
         editWord =  (EditText) findViewById(R.id.editWord);
+        spinner = (Spinner) findViewById(R.id.spinnerStory);
+        addListenerOnSpinnerItemSelection();
 
         try
         {
             getStory();
-        }
-        catch (IOException e)
-        {
+        }  catch (IOException e)  {
             e.printStackTrace();
         }
 
@@ -41,7 +44,7 @@ public class InputActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-    
+
     public void toStory(View view) throws IOException {
         Intent intent = new Intent(this, StoryActivity.class);
 
@@ -54,8 +57,16 @@ public class InputActivity extends AppCompatActivity {
         finish();
     }
 
+
+    public void addListenerOnSpinnerItemSelection() {
+        spinner.setOnItemSelectedListener(new CustomOnItemSelectedListener());
+    }
+
     private void getStory() throws IOException
     {
+        //spinner.getSelectedItem()
+    //// TODO: 12/09/2017 Doe hier iets met de geselecteerde spinner ding 
+
         InputStream targetStream  = null;
         Random r = new Random();
         int storyNo = r.nextInt(5);
